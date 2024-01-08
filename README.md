@@ -5,4 +5,4 @@ The app is meant to help people search for a movie from TheMovieDb. It has a fin
 - I thought about new features
 - I developed the required features
 - I used the newest Android technologies (Jetpack Compose, Flows, Compose Navigation)
-- I used Paginating for load the movies 
+- I used Paginating for loading the movies 
