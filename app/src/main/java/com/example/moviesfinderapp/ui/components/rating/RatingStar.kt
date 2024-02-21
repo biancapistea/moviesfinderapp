@@ -21,6 +21,7 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import java.util.Locale
 
 @Composable
 fun RatingStar(
@@ -60,7 +61,7 @@ fun RatingStar(
         if(showRatingScore) {
             Text(
                 modifier = Modifier.wrapContentSize().weight(1f),
-                text = "(${String.format("%.3f", rating).toDouble()})",
+                text = "(${String.format(Locale.US,"%.2f", rating).toDouble()})",
                 color = Color.White,
                 fontSize = 16.sp
             )
