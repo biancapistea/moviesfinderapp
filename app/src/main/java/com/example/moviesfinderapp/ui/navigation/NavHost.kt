@@ -5,16 +5,14 @@ import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.moviesfinderapp.ui.screens.dashboard.HomeScreen
 import com.example.moviesfinderapp.ui.models.MovieUi
+import com.example.moviesfinderapp.ui.screens.dashboard.HomeScreen
 import com.example.moviesfinderapp.ui.screens.moviedetails.MovieDetailsScreen
 import com.example.moviesfinderapp.ui.screens.splash.SplashScreen
 
@@ -25,8 +23,6 @@ fun NavHost(
     startDestination: String = Destinations.Splash.name
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
-        val navBackStackEntry by navController.currentBackStackEntryAsState()
-        val currentRoute = navBackStackEntry?.destination?.route
         NavHost(
             navController = navController,
             startDestination = startDestination
