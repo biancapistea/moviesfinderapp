@@ -8,8 +8,8 @@ The app is meant to help people search for a movie from TheMovieDb. It has a fin
 - I used Paginating for loading the movies 
 
 
-Tech Stack: Kotlin, Jetpack Compose, Retrofit, Dagger Hilt, Navigation, Flows, Paging, ExoPlayer, MVVM
-
+**Tech Stack: Kotlin, Jetpack Compose, Retrofit, Dagger Hilt, Navigation, Flows, Paging, ExoPlayer, MVVM
+**
 
 <img width="303" alt="Screenshot 2024-01-08 at 16 45 07" src="https://github.com/biancapistea/MoviesFinderApp/assets/56589178/dd7bbbf5-e0af-40bd-af60-fe6607ef40d5">
 <img width="303" alt="Screenshot 2024-01-08 at 16 45 19" src="https://github.com/biancapistea/MoviesFinderApp/assets/56589178/3e11d2da-eb06-4f39-b5f2-b8c4d02b5f44">
