@@ -7,7 +7,6 @@ import com.example.data.network.ApiException
 import com.example.data.network.MoviesAPI
 import retrofit2.HttpException
 import java.io.IOException
-import java.util.Date
 import javax.inject.Inject
 
 interface MoviesRepository {
@@ -29,15 +28,18 @@ interface MoviesRepository {
 
 internal class MoviesRepositoryImpl @Inject constructor(private val moviesAPI: MoviesAPI) :
     MoviesRepository {
+    private val message = "Could not retreive data. An unexpected error occured"
+    private val noInternetMessage = "Couldn't reach server. Check your internet connection."
+
     override suspend fun getAllPopularMovies(currentPage: Int): ResponseDto {
         return try {
             moviesAPI.getAllPopularMovies(currentPage)
         } catch (e: HttpException) {
-            throw ApiException(message = "Could not retreive data. An unexpected error occured")
+            throw ApiException(message = message)
         } catch (e: IOException) {
             throw ApiException(
                 noInternet = true,
-                message = "Couldn't reach server. Check your internet connection."
+                message = noInternetMessage
             )
         }
     }
@@ -46,11 +48,11 @@ internal class MoviesRepositoryImpl @Inject constructor(private val moviesAPI: M
         return try {
             moviesAPI.getTopRatedMovies(currentPage)
         } catch (e: HttpException) {
-            throw ApiException(message = "Could not retreive data. An unexpected error occured")
+            throw ApiException(message = message)
         } catch (e: IOException) {
             throw ApiException(
                 noInternet = true,
-                message = "Couldn't reach server. Check your internet connection."
+                message = noInternetMessage
             )
         }
     }
@@ -77,11 +79,11 @@ internal class MoviesRepositoryImpl @Inject constructor(private val moviesAPI: M
                 language
             )
         } catch (e: HttpException) {
-            throw ApiException(message = "Could not retreive data. An unexpected error occured")
+            throw ApiException(message = message)
         } catch (e: IOException) {
             throw ApiException(
                 noInternet = true,
-                message = "Couldn't reach server. Check your internet connection."
+                message = noInternetMessage
             )
         }
     }
@@ -93,11 +95,11 @@ internal class MoviesRepositoryImpl @Inject constructor(private val moviesAPI: M
         return try {
             moviesAPI.getMoviesBasedOnKeyword(currentPage, keyword)
         } catch (e: HttpException) {
-            throw ApiException(message = "Could not retreive data. An unexpected error occured")
+            throw ApiException(message = message)
         } catch (e: IOException) {
             throw ApiException(
                 noInternet = true,
-                message = "Couldn't reach server. Check your internet connection."
+                message = noInternetMessage
             )
         }
     }
@@ -106,11 +108,11 @@ internal class MoviesRepositoryImpl @Inject constructor(private val moviesAPI: M
         return try {
             moviesAPI.getMovieVideo(movieId)
         } catch (e: HttpException) {
-            throw ApiException(message = "Could not retreive data. An unexpected error occured")
+            throw ApiException(message = message)
         } catch (e: IOException) {
             throw ApiException(
                 noInternet = true,
-                message = "Couldn't reach server. Check your internet connection."
+                message = noInternetMessage
             )
         }
     }
@@ -119,11 +121,11 @@ internal class MoviesRepositoryImpl @Inject constructor(private val moviesAPI: M
         return try {
             moviesAPI.getMovieActors(movieId)
         } catch (e: HttpException) {
-            throw ApiException(message = "Could not retreive data. An unexpected error occured")
+            throw ApiException(message = message)
         } catch (e: IOException) {
             throw ApiException(
                 noInternet = true,
-                message = "Couldn't reach server. Check your internet connection."
+                message = noInternetMessage
             )
         }
     }
