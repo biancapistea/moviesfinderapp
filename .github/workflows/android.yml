@@ -26,3 +26,7 @@ jobs:
       run: ./gradlew build
     - name: Run Unit Tests
       run: ./gradlew test
+    - name: Run sonarqube
+      env:
+        SONAR_TOKEN: ${{ squ_e0e4aa37dd53d8e3cea8c8a0f482d7289dfdf196 }}
+      run: ./gradlew sonarqube
