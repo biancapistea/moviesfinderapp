@@ -1,6 +1,5 @@
 # FROM ubuntu
 #
-# LABEL maintainer="Carlos Nunez <dev@carlosnunez.me>"
 #
 # USER root
 #
