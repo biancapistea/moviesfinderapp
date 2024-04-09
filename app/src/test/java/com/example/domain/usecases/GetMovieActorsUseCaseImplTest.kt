@@ -1,28 +1,13 @@
 package com.example.domain.usecases
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.example.domain.model.ListMovies
-import com.example.domain.model.Movie
-import com.example.domain.model.Resource
 import com.example.moviesfinderapp.ui.screens.dashboard.HomeViewModel
-import com.nhaarman.mockito_kotlin.any
 import com.nhaarman.mockito_kotlin.mock
-import com.nhaarman.mockito_kotlin.whenever
 import junit.framework.TestCase.assertEquals
-import junit.framework.TestCase.assertNotNull
-import junit.framework.TestCase.assertTrue
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.StandardTestDispatcher
-import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
-import kotlinx.coroutines.test.runBlockingTest
-import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import org.junit.After
 import org.junit.Before
@@ -30,8 +15,6 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
-import org.mockito.Mockito.mock
-import org.mockito.Mockito.`when`
 import org.mockito.junit.MockitoJUnitRunner
 
 @ExperimentalCoroutinesApi
@@ -79,5 +62,11 @@ internal class HomeViewModelTest {
     @Test
     fun `test get popular movies`() {
         assertEquals(objUnderTest.uiState.value.isLoading, false)
+    }
+
+    @Test
+    fun `test when click on a chips the text is the selected one`(){
+        objUnderTest.setSelectedChip("Top rated")
+        assertEquals(objUnderTest.uiState.value.selectedChip, "Top rated")
     }
 }
