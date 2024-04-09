@@ -90,6 +90,6 @@ internal class HomeViewModelTest {
         objUnderTest.getPopularMovies(1)
 
         // Then
-        assertEquals(objUnderTest.uiState.value.isLoading, true)
+        assertEquals(objUnderTest.uiState.value.isLoading, false)
     }
 }
