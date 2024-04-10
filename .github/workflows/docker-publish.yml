@@ -24,7 +24,7 @@ env:
 
 jobs:
   integration:
-    uses: ./.github/workflows/android-ci.yml
+    uses: ./.github/workflows/android.yml
     permissions:
       contents: read
       checks: write
