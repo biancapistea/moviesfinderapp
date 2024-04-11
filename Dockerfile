@@ -14,6 +14,7 @@
 # ENTRYPOINT [ "/entrypoint.bash" ]
 
 FROM ubuntu:18.04
+EXPOSE 8080
 MAINTAINER Farhan Yuda Pahlevi <pahlevi.kun@gmail.com>
 ENV VERSION_TOOLS "6200805"
 ENV ANDROID_HOME "/sdk"
