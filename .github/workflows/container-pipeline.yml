@@ -28,6 +28,7 @@ jobs:
       contents: read
       packages: write
       id-token: write
+      checks: write
 
   deploy-staging:
     needs: [delivery]
