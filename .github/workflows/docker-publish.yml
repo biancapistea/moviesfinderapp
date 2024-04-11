@@ -18,6 +18,8 @@ on:
   
 permissions:
   contents: read
+  packages: write
+  id-token: write
   checks: write
 
 env:
