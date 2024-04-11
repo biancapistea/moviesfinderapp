@@ -30,15 +30,8 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 
-jobs:
-  integration:
-    uses: ./.github/workflows/android.yml
-    permissions:
-      contents: read
-      checks: write
-  
+jobs: 
   build:
-    needs: [integration]
     runs-on: ubuntu-latest
     permissions:
       contents: read
