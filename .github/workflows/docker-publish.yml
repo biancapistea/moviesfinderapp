@@ -8,29 +8,31 @@ name: Docker
 on:
   schedule:
     - cron: '23 22 * * *'
-  push:
-    branches: [ "main" ]
-    # Publish semver tags as releases.
-    tags: [ 'v*.*.*' ]
-  pull_request:
-    branches: [ "main" ]
+  # push:
+  #   branches: [ "main" ]
+  #   # Publish semver tags as releases.
+  #   tags: [ 'v*.*.*' ]
+  # pull_request:
+  #   branches: [ "main" ]
+  workflow_call:
+  workflow_dispatch:
+  
+permissions:
+  contents: read
+  packages: write
+  id-token: write
+  checks: write
 
 env:
+  PORT: 8080
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
 
 
-jobs:
-  integration:
-    uses: ./.github/workflows/android.yml
-    permissions:
-      contents: read
-      checks: write
-  
+jobs: 
   build:
-    needs: [integration]
     runs-on: ubuntu-latest
     permissions:
       contents: read
