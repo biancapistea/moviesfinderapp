@@ -24,14 +24,14 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.movies.R
 
 @Composable
-fun SplashScreen(onNavigateToDashboard: () -> Unit = {}, viewModel: SplashViewModel) {
+fun SplashScreen(onNavigateToAuth: () -> Unit = {}, viewModel: SplashViewModel) {
     val isLoading by viewModel.isLoading.collectAsStateWithLifecycle()
 
     if (isLoading) {
         SplashScreenContent()
     } else {
         LaunchedEffect(Unit) {
-            onNavigateToDashboard()
+            onNavigateToAuth()
         }
     }
 }
@@ -59,14 +59,14 @@ fun SplashScreenContent() {
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(paddingValues)
-                    .background(Color.White),
+                    .background(Color.Black),
                 contentAlignment = Alignment.Center,
                 content = {
                     Image(
                         modifier = Modifier
                             .wrapContentSize()
                             .scale(scale = scale.value),
-                        painter = painterResource(id = R.drawable.ic_splash),
+                        painter = painterResource(id = R.drawable.ic_splash_movie),
                         contentDescription = null
                     )
                 }

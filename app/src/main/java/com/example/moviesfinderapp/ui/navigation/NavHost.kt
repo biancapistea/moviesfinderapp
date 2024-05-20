@@ -11,7 +11,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.moviesfinderapp.ui.biometric.BiometricAuthManager
 import com.example.moviesfinderapp.ui.models.MovieUi
+import com.example.moviesfinderapp.ui.screens.auth.AuthenticatorScreen
 import com.example.moviesfinderapp.ui.screens.dashboard.HomeScreen
 import com.example.moviesfinderapp.ui.screens.moviedetails.MovieDetailsScreen
 import com.example.moviesfinderapp.ui.screens.splash.SplashScreen
@@ -20,6 +22,7 @@ import com.example.moviesfinderapp.ui.screens.splash.SplashScreen
 @Composable
 fun NavHost(
     navController: NavHostController = rememberNavController(),
+    promptManager: BiometricAuthManager,
     startDestination: String = Destinations.Splash.name
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
@@ -27,10 +30,13 @@ fun NavHost(
             navController = navController,
             startDestination = startDestination
         ) {
+            composable(Destinations.Auth.name) {
+                AuthenticatorScreen(authManager = promptManager, onNavigateToDashboard = { navController.navigate(Destinations.Home.name) })
+            }
             composable(Destinations.Splash.name) {
                 SplashScreen(
                     viewModel = hiltViewModel(),
-                    onNavigateToDashboard = { navController.navigate(Destinations.Home.name) },
+                    onNavigateToAuth = { navController.navigate(Destinations.Auth.name) },
                 )
             }
             composable(Destinations.Home.name) {
@@ -46,7 +52,8 @@ fun NavHost(
                 )
             }
             composable("${Destinations.MovieDetails.name}/{movieId}") { backStackEntry ->
-                val movieClicked = navController.previousBackStackEntry?.savedStateHandle?.get<MovieUi>(
+                val movieClicked =
+                    navController.previousBackStackEntry?.savedStateHandle?.get<MovieUi>(
                         "movieClicked"
                     )
                 if (movieClicked != null) {

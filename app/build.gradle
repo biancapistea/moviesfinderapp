@@ -77,6 +77,9 @@ dependencies {
 
     //Youtube player
     implementation "com.pierfrancescosoffritti.androidyoutubeplayer:core:11.1.0"
+    implementation"androidx.biometric:biometric:1.1.0"
+
+    implementation"androidx.appcompat:appcompat:1.6.1"
 
     testImplementation 'junit:junit:4.13.2'
     implementation 'androidx.test.ext:junit-ktx:1.1.5'
