@@ -12,7 +12,7 @@ internal interface MoviesAPI {
     @GET("discover/movie?include_adult=false&include_video=true&language=en-US&sort_by=popularity.desc&with_original_language=en")
     suspend fun getAllPopularMovies(@Query("page") currentPage: Int = 1): ResponseDto
 
-    @GET("discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&vote_average.gte=8.3&vote_average.lte=9.5&with_original_language=en")
+    @GET("discover/movie?include_adult=false&include_video=false&language=en-US&sort_by=popularity.desc&vote_average.gte=8.3&vote_average.lte=9.5&with_original_language=en")
     suspend fun getTopRatedMovies(@Query("page") currentPage: Int = 1): ResponseDto
 
     @GET("discover/movie?include_adult=false&include_video=true&language=en-US&sort_by=popularity.desc")

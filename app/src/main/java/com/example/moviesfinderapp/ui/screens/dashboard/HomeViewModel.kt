@@ -333,7 +333,7 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    fun getPopularMovies(page: Int) {
+    private fun getPopularMovies(page: Int) {
         viewModelScope.launch {
             getPopularMoviesUseCase.getPopularMovies(page)
                 .collectLatest { status ->
