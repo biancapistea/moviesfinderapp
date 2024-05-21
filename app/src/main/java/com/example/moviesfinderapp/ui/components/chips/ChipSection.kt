@@ -2,6 +2,7 @@ package com.example.moviesfinderapp.ui.components.chips
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
@@ -36,7 +37,8 @@ fun ChipSection(
                 contentAlignment = Alignment.Center,
                 modifier = Modifier
                     .padding(start = 15.dp, top = 15.dp, bottom = 15.dp)
-                    .clickable {
+                    .clickable(indication = null,
+                        interactionSource = remember { MutableInteractionSource() }) {
                         selectedChipIndex = index
                         setSelectedChip(chips[index].title)
                         chips[index].onClick()
